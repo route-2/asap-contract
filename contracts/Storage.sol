@@ -10,6 +10,14 @@ function setKeys(address owner, string memory hashes)public{
     check[owner]=true;
    require(check[owner] == true && msg.sender == owner, 'No hash found');
 }
+ function GetHash(address owner)public view returns(string memory){
+        require(msg.sender == owner && check[owner] == true, 'Only owner can call');
+         require(check[msg.sender] ==true, 'No hash found');
+       
+        return nested[msg.sender];
+       
+        
+    }
 
 
 
