@@ -15,6 +15,7 @@ contract MultiSigWallet {
     event ExecuteTransaction(address indexed owner, uint indexed txIndex);
 
     address[] public owners;
+    // pass the address of smart contract and the address of the user from other contracts
     mapping(address => bool) public isOwner;
     uint public numConfirmationsRequired;
 
