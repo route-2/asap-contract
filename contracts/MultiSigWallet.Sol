@@ -27,6 +27,7 @@ contract MultiSigWallet {
     }
 
     // mapping from tx index => owner => bool
+    // update the mapping according to the nested mapping 
     mapping(uint => mapping(address => bool)) public isConfirmed;
 
     Transaction[] public transactions;
