@@ -75,13 +75,7 @@ contract MultiSigWallet {
     }
     // alter owner length and isOwner mapping
     // guardian wallet auto updates 
-    function addOwner(address _owner) public onlyOwner {
-        require(_owner != address(0), "invalid owner");
-        require(!isOwner[_owner], "owner already added");
-
-        isOwner[_owner] = true;
-        owners.push(_owner);
-    }
+   
 
     receive() external payable {
         emit Deposit(msg.sender, msg.value, address(this).balance);
