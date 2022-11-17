@@ -1,7 +1,21 @@
 const { expect } = require("chai");
 const { ethers } = require("hardhat");
 
-describe("Greeter", function () {
+describe( "Sample", function(){
+  async function deployContract() {
+    const [owner] = await ethers.getSigners();
+    const Contract = await ethers.getContractFactory("Contract");
+    const contract = await Contract.deploy();
+    await contract.deployed();
+    return contract;
+}
+
+
+})
+
+
+
+describe("Greeter", function (deployContract) {
   it("Should return the new greeting once it's changed", async function () {
     const Greeter = await ethers.getContractFactory("Greeter");
     const greeter = await Greeter.deploy("Hello, world!");
